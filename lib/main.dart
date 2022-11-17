@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(158, 216, 219, 1),
+        backgroundColor: const Color.fromRGBO(158, 216, 219, 1),
         title: const Center(
           child: Text(
             'MONEY CONVERTER',
@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
           children: [
             Image.network('https://store-images.s-microsoft.com/image/apps.44414.70a846a5-f8fb-4ee7-aa9e-3ee29de1cf77.d2e0a3c2-b181-4f1a-a4f8-0a1b374a5744.65f43c31-59fa-4b37-b562-d106a5c58ae3'),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Container(
               width: 300,
               child: const Text(
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: Row(
@@ -108,12 +108,12 @@ class _HomePageState extends State<HomePage> {
                           value: 0,
                           groupValue: currency,
                           onChanged: (int? newValue) {
-                            if(amount != null){
-                              convert();
-                            }
                             setState(() {
                               currency = newValue!;
                               currencyString = 'EUR';
+                              if(amount != null){
+                                convert();
+                              }
                             });
                           }),
 
@@ -133,12 +133,13 @@ class _HomePageState extends State<HomePage> {
                           value: 1,
                           groupValue: currency,
                           onChanged: (int? newValue) {
-                            if(amount != null){
-                              convert();
-                            }
+
                             setState(() {
                               currency = newValue!;
                               currencyString = 'USD';
+                              if(amount != null){
+                                convert();
+                              }
                             });
                           }),
 
@@ -158,12 +159,13 @@ class _HomePageState extends State<HomePage> {
                           value: 2,
                           groupValue: currency,
                           onChanged: (int? newValue) {
-                            if(amount != null){
-                              convert();
-                            }
+
                             setState(() {
                               currency = newValue!;
                               currencyString = 'GBP';
+                              if(amount != null){
+                                convert();
+                              }
                             });
                           }),
 
@@ -172,7 +174,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: TextField(
@@ -184,14 +186,14 @@ class _HomePageState extends State<HomePage> {
                 decoration: InputDecoration(
                   errorText: error,
                   hintText: 'Enter the amount',
-                  focusedBorder: UnderlineInputBorder(
+                  focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color.fromRGBO(46, 75, 99, 1),
 
                     ),
                   ),
                   suffixIcon: IconButton(
-                    icon: Icon(
+                    icon: const Icon(
                         Icons.clear,
                         color: Color.fromRGBO(46, 75, 99, 1)
                     ),
@@ -205,7 +207,7 @@ class _HomePageState extends State<HomePage> {
 
 
                   ),
-                  enabledBorder: UnderlineInputBorder(
+                  enabledBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Color.fromRGBO(46, 75, 99, 1),
                     ),
@@ -228,15 +230,16 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             OutlinedButton(
               onPressed: () {
                 convert();
+                FocusScope.of(context).unfocus();
               },
               style: OutlinedButton.styleFrom(
                   elevation: 10,
-                  side: BorderSide(style: BorderStyle.none),
-                  backgroundColor: Color.fromRGBO(158, 216, 219, 1),
+                  side: const BorderSide(style: BorderStyle.none),
+                  backgroundColor: const Color.fromRGBO(158, 216, 219, 1),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   )
@@ -255,7 +258,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             ok == true && amount != null ? Text(
               '$amount $currencyString = $convertedAmountString RON',
               style: const TextStyle(
