@@ -81,9 +81,9 @@ class _HomePageState extends State<HomePage> {
           Container(
             height: 15,
           ),
-          Container(
+          const SizedBox(
             width: 300,
-            child: const Text(
+            child: Text(
               'Chose the currency:',
               style: TextStyle(
                 fontSize: 20,
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                         color: Color.fromRGBO(29, 51, 84, 1),
                       ),
                     ),
-                    Radio(
+                    Radio<int>(
                       value: 0,
                       groupValue: currency,
                       onChanged: (int? newValue) {
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
                         color: Color.fromRGBO(29, 51, 84, 1),
                       ),
                     ),
-                    Radio(
+                    Radio<int>(
                       value: 1,
                       groupValue: currency,
                       onChanged: (int? newValue) {
@@ -159,7 +159,7 @@ class _HomePageState extends State<HomePage> {
                         color: Color.fromRGBO(29, 51, 84, 1),
                       ),
                     ),
-                    Radio(
+                    Radio<int>(
                       value: 2,
                       groupValue: currency,
                       onChanged: (int? newValue) {
