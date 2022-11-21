@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gad_tema2/meeting2/conversion_app.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -15,5 +16,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
