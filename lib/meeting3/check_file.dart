@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CheckNumber extends StatefulWidget {
-  const CheckNumber({Key? key}) : super(key: key);
+  const CheckNumber({super.key});
 
   @override
   State<CheckNumber> createState() => _CheckNumberState();
@@ -12,7 +12,7 @@ class _CheckNumberState extends State<CheckNumber> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Text(
             'Check Number APP',
             style: TextStyle(
