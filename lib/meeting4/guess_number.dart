@@ -91,31 +91,30 @@ class _NumberGuessState extends State<NumberGuess> {
                         ),
                         child: MaterialButton(
                           onPressed: () {
-                            setState(() {
-                              fontSizeVariable = 50;
-                              final String inputNumber = _inputController.text;
-                              final int? intInputNumber = int.tryParse(inputNumber);
-                              if (intInputNumber == null){
-                                errorMessage = 'Enter a number!';
-                                hint = '';
-                                fontSizeVariable = 1;
-                              }
-                              else{
-                                if (intInputNumber == randomNumber){
-                                  hint = 'You got it right';
-                                  won = true;
-                                  errorMessage = null;
+                            setState(
+                              () {
+                                fontSizeVariable = 50;
+                                final String inputNumber = _inputController.text;
+                                final int? intInputNumber = int.tryParse(inputNumber);
+                                if (intInputNumber == null) {
+                                  errorMessage = 'Enter a number!';
+                                  hint = '';
+                                  fontSizeVariable = 1;
+                                } else {
+                                  if (intInputNumber == randomNumber) {
+                                    hint = 'You got it right';
+                                    won = true;
+                                    errorMessage = null;
+                                  } else if (intInputNumber < randomNumber) {
+                                    hint = 'Guess higher';
+                                    errorMessage = null;
+                                  } else {
+                                    hint = 'Guess lower';
+                                    errorMessage = null;
+                                  }
                                 }
-                                else if(intInputNumber < randomNumber){
-                                  hint = 'Guess higher';
-                                  errorMessage = null;
-                                }
-                                else{
-                                  hint = 'Guess lower';
-                                  errorMessage = null;
-                                }
-                              }
-                            });
+                              },
+                            );
                           },
                           color: Colors.grey.shade400,
                           child: Row(
