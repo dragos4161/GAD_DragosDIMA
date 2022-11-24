@@ -16,7 +16,7 @@ class _NumberGuessState extends State<NumberGuess> {
   int randomNumber = Random().nextInt(91) + 10;
   double fontSizeVariable = 1;
   bool won = false;
-  double cardHeight = 170;
+  double cardHeight = 190;
 
   @override
   Widget build(BuildContext context) {
@@ -146,9 +146,10 @@ class _NumberGuessState extends State<NumberGuess> {
                                     () {
                                       randomNumber = Random().nextInt(91) + 10;
                                       won = false;
-                                      cardHeight = 170;
+                                      cardHeight = 190;
                                       hint = '';
                                       fontSizeVariable = 1;
+                                      _inputController.clear();
                                     },
                                   );
                                 },
