@@ -1,2 +1,2 @@
 ![](/images/tema4.gif)
-![](/images/TicTacToe.gif)
+![](/images/TicTacToe_revised.gif)
