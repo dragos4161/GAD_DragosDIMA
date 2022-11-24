@@ -12,6 +12,8 @@ class _TicTacToeState extends State<TicTacToe> {
   Map<int, Color> colors = <int, Color>{};
   bool player = true;
 
+  String? winner;
+
   void initializeColors(Color color) {
     setState(
       () {
@@ -96,10 +98,20 @@ class _TicTacToeState extends State<TicTacToe> {
                   }
                   if (isWon() == Colors.red || isWon() == Colors.greenAccent) {
                     initializeColors(isWon());
+                    if (isWon() == Colors.red) {
+                      winner = 'RED';
+                    } else {
+                      winner = 'GREEN';
+                    }
                     showDialog<void>(
                       context: context,
                       builder: (BuildContext context) => AlertDialog(
-                        title: const Text('One more time?'),
+                        title: Text(
+                          '${winner!} WON!',
+                        ),
+                        content: const Text(
+                          'One more time?',
+                        ),
                         actions: <Widget>[
                           TextButton(
                             onPressed: () {
@@ -134,10 +146,50 @@ class _TicTacToeState extends State<TicTacToe> {
                       ),
                     );
                   }
-                } else if (isWon() == Colors.red || isWon() == Colors.greenAccent) {
-                  initializeColors(isWon());
-                } else if (isWon() == Colors.grey) {
-                  initializeColors(Colors.grey);
+                  if (isPositionAvailable() == false && isWon() == Colors.grey) {
+                    showDialog<void>(
+                      context: context,
+                      builder: (BuildContext context) => AlertDialog(
+                        title: const Text(
+                          "It's a draw",
+                        ),
+                        content: const Text(
+                          'One more time?',
+                        ),
+                        actions: <Widget>[
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: Container(
+                              color: Colors.grey,
+                              padding: const EdgeInsets.all(14),
+                              child: const Text(
+                                'Cancel',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                              initializeColors(Colors.grey);
+                            },
+                            child: Container(
+                              color: Colors.grey,
+                              padding: const EdgeInsets.all(14),
+                              child: const Text(
+                                'Retry',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
                 }
               });
             },
