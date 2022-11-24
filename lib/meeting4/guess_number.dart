@@ -16,6 +16,7 @@ class _NumberGuessState extends State<NumberGuess> {
   int randomNumber = Random().nextInt(91) + 10;
   double fontSizeVariable = 1;
   bool won = false;
+  double cardHeight = 170;
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +65,8 @@ class _NumberGuessState extends State<NumberGuess> {
             child: Card(
               elevation: 50,
               child: SizedBox(
-                height: 200,
-                width: 300,
+                height: cardHeight,
+                width: 320,
                 child: Padding(
                   padding: const EdgeInsets.all(20),
                   child: Column(
@@ -89,50 +90,88 @@ class _NumberGuessState extends State<NumberGuess> {
                           left: 60,
                           right: 60,
                         ),
-                        child: MaterialButton(
-                          onPressed: () {
-                            setState(
-                              () {
-                                fontSizeVariable = 50;
-                                final String inputNumber = _inputController.text;
-                                final int? intInputNumber = int.tryParse(inputNumber);
-                                if (intInputNumber == null) {
-                                  errorMessage = 'Enter a number!';
-                                  hint = '';
-                                  fontSizeVariable = 1;
-                                } else {
-                                  if (intInputNumber == randomNumber) {
-                                    hint = 'You got it right';
-                                    won = true;
-                                    errorMessage = null;
-                                  } else if (intInputNumber < randomNumber) {
-                                    hint = 'Guess higher';
-                                    errorMessage = null;
-                                  } else {
-                                    hint = 'Guess lower';
-                                    errorMessage = null;
-                                  }
-                                }
+                        child: Column(
+                          children: <Widget>[
+                            MaterialButton(
+                              onPressed: () {
+                                setState(
+                                  () {
+                                    fontSizeVariable = 50;
+                                    final String inputNumber = _inputController.text;
+                                    final int? intInputNumber = int.tryParse(inputNumber);
+                                    if (intInputNumber == null) {
+                                      errorMessage = 'Enter a number!';
+                                      hint = '';
+                                      fontSizeVariable = 1;
+                                    } else {
+                                      if (intInputNumber == randomNumber) {
+                                        hint = 'You got it right';
+                                        won = true;
+                                        errorMessage = null;
+                                        cardHeight = 230;
+                                      } else if (intInputNumber < randomNumber) {
+                                        hint = 'Guess higher';
+                                        errorMessage = null;
+                                      } else {
+                                        hint = 'Guess lower';
+                                        errorMessage = null;
+                                      }
+                                    }
+                                  },
+                                );
                               },
-                            );
-                          },
-                          color: Colors.grey.shade400,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: const <Widget>[
-                              Text(
-                                'CHECK',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                              color: Colors.grey.shade400,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: const <Widget>[
+                                  Icon(
+                                    Icons.check_rounded,
+                                    size: 30,
+                                  ),
+                                  Text(
+                                    'CHECK',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Visibility(
+                              visible: won,
+                              child: MaterialButton(
+                                onPressed: () {
+                                  setState(
+                                    () {
+                                      randomNumber = Random().nextInt(91) + 10;
+                                      won = false;
+                                      cardHeight = 170;
+                                      hint = '';
+                                      fontSizeVariable = 1;
+                                    },
+                                  );
+                                },
+                                color: Colors.grey.shade400,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const <Widget>[
+                                    Icon(
+                                      Icons.settings_backup_restore_outlined,
+                                      size: 30,
+                                    ),
+                                    Text(
+                                      'Try Again',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                              Icon(
-                                Icons.check_rounded,
-                                size: 30,
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
