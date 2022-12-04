@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 //import 'package:gad_tema2/meeting3/check_number.dart';
 //import 'package:gad_tema2/meeting4/guess_number.dart';
 //import 'package:gad_tema2/meeting4/tic_tac_toe.dart';
-import 'package:gad_tema2/meeting5/movie_app.dart';
+//import 'package:gad_tema2/meeting5/movie_app.dart';
+import 'package:gad_tema2/meeting6/unsplash_random_photos.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MovieApp(),
+      home: RandomPhotos(),
     );
   }
 }
