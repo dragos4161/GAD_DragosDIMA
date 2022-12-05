@@ -60,8 +60,8 @@ class _RandomPhotosState extends State<RandomPhotos> {
                 padding: const EdgeInsets.all(10),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 5,
-                  mainAxisSpacing: 5,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
                   childAspectRatio: 0.7,
                 ),
                 itemBuilder: (BuildContext context, int index) {
@@ -71,7 +71,22 @@ class _RandomPhotosState extends State<RandomPhotos> {
                     );
                   }
                   return GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      showDialog<void>(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          contentPadding: EdgeInsets.zero,
+                          content: SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.7,
+                            width: MediaQuery.of(context).size.width,
+                            child: Image.network(
+                              _images.elementAt(index),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                     child: AnimatedContainer(
                       duration: const Duration(
                         seconds: 1,
