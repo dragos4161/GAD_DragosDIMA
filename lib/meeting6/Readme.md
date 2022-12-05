@@ -1,0 +1,1 @@
+![](/images/randomPhoto.gif)
