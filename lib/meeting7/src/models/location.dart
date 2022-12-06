@@ -10,7 +10,7 @@ class Location with _$Location {
     required String? name,
     required String? city,
     required String? country,
-}) = Location$;
+  }) = Location$;
 
   factory Location.fromJson(Map<dynamic, dynamic> json) => _$LocationFromJson(Map<String, dynamic>.from(json));
 }

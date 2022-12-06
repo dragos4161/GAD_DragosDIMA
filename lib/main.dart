@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const PhotoApp(),
       routes: <String, WidgetBuilder>{
-        '/photoDetails' : (BuildContext context){
+        '/photoDetails': (BuildContext context) {
           return const DetailsPage();
         },
       },

@@ -12,8 +12,7 @@ _$Location$ _$$Location$FromJson(Map<String, dynamic> json) => _$Location$(
       country: json['country'] as String?,
     );
 
-Map<String, dynamic> _$$Location$ToJson(_$Location$ instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$Location$ToJson(_$Location$ instance) => <String, dynamic>{
       'name': instance.name,
       'city': instance.city,
       'country': instance.country,

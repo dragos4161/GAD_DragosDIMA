@@ -9,8 +9,8 @@ class PhotoApi {
   final Client _client;
 
   Future<List<Photo>> getPhotos() async {
-    final Response response =
-    await _client.get(Uri.parse('https://api.unsplash.com/photos/random/?count=10&client_id=6j2NpUO6awtcrGwip0UOoi5NydZuUW-bMsiuXfZSqgg'));
+    final Response response = await _client.get(Uri.parse(
+        'https://api.unsplash.com/photos/random/?count=10&client_id=6j2NpUO6awtcrGwip0UOoi5NydZuUW-bMsiuXfZSqgg'));
 
     final List<dynamic> body = jsonDecode(response.body) as List<dynamic>;
 
