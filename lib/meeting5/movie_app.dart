@@ -23,7 +23,7 @@ class _MovieAppState extends State<MovieApp> {
         .then((Response response) {
       response.body;
       final Map<String, dynamic> map = jsonDecode(response.body) as Map<String, dynamic>;
-      final Map<String, dynamic> data = map['data'] as Map<String, dynamic>;
+      final Map<String, dynamic> data = map['urls'] as Map<String, dynamic>;
       final List<dynamic> movies = data['movies'] as List<dynamic>;
 
       final Iterable<String> items = movies //
@@ -33,7 +33,6 @@ class _MovieAppState extends State<MovieApp> {
       final Iterable<String> imageItems = movies //
           .cast<Map<dynamic, dynamic>>()
           .map((Map<dynamic, dynamic> item) => item['medium_cover_image'] as String);
-
       setState(() {
         _titles.addAll(items);
         _images.addAll(imageItems);
