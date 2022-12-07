@@ -73,7 +73,7 @@ class _PhotoAppState extends State<PhotoApp> {
                       ),
                       width: 50,
                       child: Image.network(
-                        photo.urls.regular,
+                        photo.urls.small,
                         fit: BoxFit.cover,
                       ),
                     ),

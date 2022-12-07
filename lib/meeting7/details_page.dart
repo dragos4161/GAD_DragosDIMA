@@ -14,7 +14,31 @@ class _DetailsPageState extends State<DetailsPage> {
     final Photo photo = ModalRoute.of(context)!.settings.arguments! as Photo;
     return Scaffold(
       appBar: AppBar(
-        title: Text('${photo.user.name} shot this'),
+        backgroundColor: Colors.grey.shade500,
+        title: SizedBox(
+          width: MediaQuery.of(context).size.width - 150,
+          child: Column(
+            children: <Widget>[
+              Text(
+                'Photo shot by',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey.shade700,
+                ),
+              ),
+              Text(
+                photo.user.name,
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey.shade900,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
       body: Column(
         children: <Widget>[
@@ -26,23 +50,76 @@ class _DetailsPageState extends State<DetailsPage> {
               fit: BoxFit.cover,
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            children: <Widget>[
-              Text(
-                textAlign: TextAlign.center,
-                '${photo.user.name} has ${photo.user.likes} ',
-                style: const TextStyle(
-                  fontSize: 24,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Container(
+              height: 130,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.grey.shade400,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          textAlign: TextAlign.center,
+                          photo.user.name,
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey.shade900,
+                          ),
+                        ),
+                        Text(
+                          ' has ${photo.user.likes} ',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey.shade700,
+                          ),
+                        ),
+                        const Icon(
+                          Icons.favorite_rounded,
+                          color: Colors.red,
+                          size: 26,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    if (photo.location.name != null)
+                      Column(
+                        children: <Widget>[
+                          Text(
+                            'Photo shot in ',
+                            style: TextStyle(
+                              fontSize: 24,
+                              color: Colors.grey.shade700,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Text(
+                            photo.location.name!,
+                            style: TextStyle(
+                              fontSize: 28,
+                              color: Colors.grey.shade900,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      )
+                    else
+                      const SizedBox.shrink(),
+                  ],
                 ),
               ),
-              const Icon(
-                Icons.heart_broken_rounded,
-                color: Colors.red,
-              ),
-            ],
+            ),
           )
         ],
       ),
