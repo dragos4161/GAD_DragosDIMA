@@ -43,7 +43,7 @@ class _DetailsPageState extends State<DetailsPage> {
       body: Column(
         children: <Widget>[
           SizedBox(
-            height: MediaQuery.of(context).size.height * 0.7,
+            height: MediaQuery.of(context).size.height * 0.6,
             width: MediaQuery.of(context).size.width,
             child: Image.network(
               photo.urls.regular,
@@ -51,11 +51,11 @@ class _DetailsPageState extends State<DetailsPage> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
             child: Container(
-              height: 130,
+              height: 200,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(30),
                 color: Colors.grey.shade400,
               ),
               child: Padding(
@@ -106,6 +106,7 @@ class _DetailsPageState extends State<DetailsPage> {
                           ),
                           Text(
                             photo.location.name!,
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 28,
                               color: Colors.grey.shade900,

@@ -11,11 +11,15 @@ class PhotoApp extends StatefulWidget {
 }
 
 class _PhotoAppState extends State<PhotoApp> {
-  final List<Photo> _images = <Photo>[];
+  List<Photo> _images = <Photo>[];
   bool isLoaded = false;
   final Client _client = Client();
 
   Future<void> getData() async {
+    setState(() {
+      isLoaded = false;
+    });
+    _images = <Photo>[];
     final List<Photo> response = await PhotoApi(_client).getPhotos();
     setState(() {
       _images.addAll(response);
