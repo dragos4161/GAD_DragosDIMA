@@ -24,7 +24,6 @@ Future<void> main() async {
     ],
   )..dispatch(const GetPhotos());
 
-
   runApp(
     MyApp(
       store: store,
