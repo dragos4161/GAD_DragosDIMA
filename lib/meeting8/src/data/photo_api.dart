@@ -11,7 +11,7 @@ class PhotoApi {
   Future<List<Photo>> getPhotos() async {
     final Response response = await _client.get(
       Uri.parse(
-        'https://api.unsplash.com/photos/random/?count=10&client_id=6j2NpUO6awtcrGwip0UOoi5NydZuUW-bMsiuXfZSqgg',
+        'https://api.unsplash.com/photos/random/?count=6&client_id=6j2NpUO6awtcrGwip0UOoi5NydZuUW-bMsiuXfZSqgg',
       ),
     );
 
