@@ -21,31 +21,29 @@ User _$UserFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$User {
   String get name => throw _privateConstructorUsedError;
-
   @JsonKey(name: 'total_likes')
   int get likes => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) = _$UserCopyWithImpl<$Res, User>;
-
+  factory $UserCopyWith(User value, $Res Function(User) then) =
+      _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call({String name, @JsonKey(name: 'total_likes') int likes});
 }
 
 /// @nodoc
-class _$UserCopyWithImpl<$Res, $Val extends User> implements $UserCopyWith<$Res> {
+class _$UserCopyWithImpl<$Res, $Val extends User>
+    implements $UserCopyWith<$Res> {
   _$UserCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -70,16 +68,18 @@ class _$UserCopyWithImpl<$Res, $Val extends User> implements $UserCopyWith<$Res>
 
 /// @nodoc
 abstract class _$$User$CopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$User$CopyWith(_$User$ value, $Res Function(_$User$) then) = __$$User$CopyWithImpl<$Res>;
-
+  factory _$$User$CopyWith(_$User$ value, $Res Function(_$User$) then) =
+      __$$User$CopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, @JsonKey(name: 'total_likes') int likes});
 }
 
 /// @nodoc
-class __$$User$CopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$User$> implements _$$User$CopyWith<$Res> {
-  __$$User$CopyWithImpl(_$User$ _value, $Res Function(_$User$) _then) : super(_value, _then);
+class __$$User$CopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$User$>
+    implements _$$User$CopyWith<$Res> {
+  __$$User$CopyWithImpl(_$User$ _value, $Res Function(_$User$) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -103,7 +103,8 @@ class __$$User$CopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$User$> impl
 /// @nodoc
 @JsonSerializable()
 class _$User$ implements User$ {
-  const _$User$({required this.name, @JsonKey(name: 'total_likes') required this.likes});
+  const _$User$(
+      {required this.name, @JsonKey(name: 'total_likes') required this.likes});
 
   factory _$User$.fromJson(Map<String, dynamic> json) => _$$User$FromJson(json);
 
@@ -134,7 +135,8 @@ class _$User$ implements User$ {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$User$CopyWith<_$User$> get copyWith => __$$User$CopyWithImpl<_$User$>(this, _$identity);
+  _$$User$CopyWith<_$User$> get copyWith =>
+      __$$User$CopyWithImpl<_$User$>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -145,17 +147,17 @@ class _$User$ implements User$ {
 }
 
 abstract class User$ implements User {
-  const factory User$({required final String name, @JsonKey(name: 'total_likes') required final int likes}) = _$User$;
+  const factory User$(
+      {required final String name,
+      @JsonKey(name: 'total_likes') required final int likes}) = _$User$;
 
   factory User$.fromJson(Map<String, dynamic> json) = _$User$.fromJson;
 
   @override
   String get name;
-
   @override
   @JsonKey(name: 'total_likes')
   int get likes;
-
   @override
   @JsonKey(ignore: true)
   _$$User$CopyWith<_$User$> get copyWith => throw _privateConstructorUsedError;

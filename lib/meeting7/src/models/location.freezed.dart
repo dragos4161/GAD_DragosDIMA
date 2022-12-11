@@ -21,32 +21,30 @@ Location _$LocationFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Location {
   String? get name => throw _privateConstructorUsedError;
-
   String? get city => throw _privateConstructorUsedError;
-
   String? get country => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
-  $LocationCopyWith<Location> get copyWith => throw _privateConstructorUsedError;
+  $LocationCopyWith<Location> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $LocationCopyWith<$Res> {
-  factory $LocationCopyWith(Location value, $Res Function(Location) then) = _$LocationCopyWithImpl<$Res, Location>;
-
+  factory $LocationCopyWith(Location value, $Res Function(Location) then) =
+      _$LocationCopyWithImpl<$Res, Location>;
   @useResult
   $Res call({String? name, String? city, String? country});
 }
 
 /// @nodoc
-class _$LocationCopyWithImpl<$Res, $Val extends Location> implements $LocationCopyWith<$Res> {
+class _$LocationCopyWithImpl<$Res, $Val extends Location>
+    implements $LocationCopyWith<$Res> {
   _$LocationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
-
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -76,17 +74,21 @@ class _$LocationCopyWithImpl<$Res, $Val extends Location> implements $LocationCo
 
 /// @nodoc
 abstract class _$$Location$CopyWith<$Res> implements $LocationCopyWith<$Res> {
-  factory _$$Location$CopyWith(_$Location$ value, $Res Function(_$Location$) then) = __$$Location$CopyWithImpl<$Res>;
-
+  factory _$$Location$CopyWith(
+          _$Location$ value, $Res Function(_$Location$) then) =
+      __$$Location$CopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? name, String? city, String? country});
 }
 
 /// @nodoc
-class __$$Location$CopyWithImpl<$Res> extends _$LocationCopyWithImpl<$Res, _$Location$>
+class __$$Location$CopyWithImpl<$Res>
+    extends _$LocationCopyWithImpl<$Res, _$Location$>
     implements _$$Location$CopyWith<$Res> {
-  __$$Location$CopyWithImpl(_$Location$ _value, $Res Function(_$Location$) _then) : super(_value, _then);
+  __$$Location$CopyWithImpl(
+      _$Location$ _value, $Res Function(_$Location$) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -115,9 +117,11 @@ class __$$Location$CopyWithImpl<$Res> extends _$LocationCopyWithImpl<$Res, _$Loc
 /// @nodoc
 @JsonSerializable()
 class _$Location$ implements Location$ {
-  const _$Location$({required this.name, required this.city, required this.country});
+  const _$Location$(
+      {required this.name, required this.city, required this.country});
 
-  factory _$Location$.fromJson(Map<String, dynamic> json) => _$$Location$FromJson(json);
+  factory _$Location$.fromJson(Map<String, dynamic> json) =>
+      _$$Location$FromJson(json);
 
   @override
   final String? name;
@@ -148,7 +152,8 @@ class _$Location$ implements Location$ {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$Location$CopyWith<_$Location$> get copyWith => __$$Location$CopyWithImpl<_$Location$>(this, _$identity);
+  _$$Location$CopyWith<_$Location$> get copyWith =>
+      __$$Location$CopyWithImpl<_$Location$>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -159,21 +164,21 @@ class _$Location$ implements Location$ {
 }
 
 abstract class Location$ implements Location {
-  const factory Location$({required final String? name, required final String? city, required final String? country}) =
-      _$Location$;
+  const factory Location$(
+      {required final String? name,
+      required final String? city,
+      required final String? country}) = _$Location$;
 
   factory Location$.fromJson(Map<String, dynamic> json) = _$Location$.fromJson;
 
   @override
   String? get name;
-
   @override
   String? get city;
-
   @override
   String? get country;
-
   @override
   @JsonKey(ignore: true)
-  _$$Location$CopyWith<_$Location$> get copyWith => throw _privateConstructorUsedError;
+  _$$Location$CopyWith<_$Location$> get copyWith =>
+      throw _privateConstructorUsedError;
 }
